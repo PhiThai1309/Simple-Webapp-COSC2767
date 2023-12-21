@@ -63,9 +63,14 @@ pipeline {
         }
 
         stage('Build') {
-            steps {
-                // Build Maven project
-                sh 'mvn clean package'
+            agent { //here we select only docker build agents
+                docker {
+                    image 'maven:latest' //container will start from this image
+                    args '-v /root/.m2:/root/.m2' //here you can map local maven repo, this let you to reuse local artifacts
+                }
+                steps {
+                sh 'mvn -B -DskipTests clean package' //this command will be executed inside maven container
+                }
             }
         }
 
