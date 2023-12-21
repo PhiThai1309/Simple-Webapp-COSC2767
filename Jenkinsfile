@@ -42,6 +42,11 @@ pipeline {
 
     // }
 
+    tools { 
+      maven 'MAVEN_HOME' 
+      jdk 'JAVA_HOME' 
+    }
+
     stages {
         stage('Checkout') {
             steps {
