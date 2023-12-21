@@ -43,8 +43,8 @@ pipeline {
     // }
 
     tools { 
-      MAVEN_HOME = tool 'Maven 3.9.6'
-    //   jdk 'JAVA_HOME' 
+      maven 'MAVEN_HOME' 
+      jdk 'JAVA_HOME' 
     }
 
     stages {
