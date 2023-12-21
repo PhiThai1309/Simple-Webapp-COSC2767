@@ -43,8 +43,10 @@ pipeline {
     // }
 
     tools { 
-      maven 'maven' 
-      jdk 'JDK' 
+        MAVEN_HOME = '/opt/maven'
+        M2='/opt/maven/bin'
+        JAVA_HOME= '/usr/lib/jvm/java-11-openjdk-11.0.20.0.8-1.amzn2.0.1.x86_64'
+    //   jdk 'JAVA_HOME' 
     }
 
     stages {
@@ -63,14 +65,9 @@ pipeline {
         }
 
         stage('Build') {
-            agent { //here we select only docker build agents
-                docker {
-                    image 'maven:latest' //container will start from this image
-                    args '-v /root/.m2:/root/.m2' //here you can map local maven repo, this let you to reuse local artifacts
-                }
-            }
             steps {
-                sh 'mvn -B -DskipTests clean package' //this command will be executed inside maven container
+                // Build Maven project
+                sh 'mvn clean package'
             }
         }
 
