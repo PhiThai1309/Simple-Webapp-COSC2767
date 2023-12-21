@@ -43,7 +43,7 @@ pipeline {
     // }
 
     tools { 
-      maven 'Maven 3.9.6' 
+      MAVEN_HOME = tool 'Maven 3.9.6'
     //   jdk 'JAVA_HOME' 
     }
 
