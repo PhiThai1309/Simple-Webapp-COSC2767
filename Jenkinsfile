@@ -43,8 +43,8 @@ pipeline {
     // }
 
     tools { 
-      maven 'MAVEN_HOME' 
-      jdk 'JAVA_HOME' 
+      maven 'maven' 
+      jdk 'JDK' 
     }
 
     stages {
