@@ -46,7 +46,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout source code from Git repository
-                git 'https://github.com/PhiThai1309/Simple-Webapp-COSC2767.git'
+                git branch: 'main', url: 'https://github.com/PhiThai1309/Simple-Webapp-COSC2767.git'
                 // // Installing dependencies
                 // yum install git -y
 
