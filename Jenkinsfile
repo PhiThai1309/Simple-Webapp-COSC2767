@@ -66,10 +66,10 @@ pipeline {
 
         stage(‘Deploy’) {
             environment {
-                TOMCAT_URL = ‘http://your-tomcat-server:8080'
-                TOMCAT_USER = ‘your-tomcat-username’
-                TOMCAT_PASSWORD = ‘your-tomcat-password’
-                CONTEXT_PATH = ‘your-app-context-path’ // e.g., /myapp
+                TOMCAT_URL = ‘http://3.87.112.240:8080'
+                TOMCAT_USER = ‘admin’
+                TOMCAT_PASSWORD = ‘s3cret’
+                CONTEXT_PATH = ‘/Simple-Webapp-COSC2767’ // e.g., /myapp
             }
             steps {
                 // Deploy the built war file to Tomcat
