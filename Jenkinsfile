@@ -42,11 +42,6 @@ pipeline {
 
     // }
 
-    // tools { 
-        
-    // //   jdk 'JAVA_HOME' 
-    // }
-
     stages {
         stage('Checkout') {
             steps {
@@ -63,10 +58,11 @@ pipeline {
         }
 
         stage('Build') {
-            environment {
-                MAVEN_HOME = '/opt/maven'
-        M2='/opt/maven/bin'
-        JAVA_HOME= '/usr/lib/jvm/java-11-openjdk-11.0.20.0.8-1.amzn2.0.1.x86_64'
+            agent {
+                docker {
+                    image 'maven:latest' 
+                    args '-v /root/.m2:/root/.m2' 
+                }
             }
             steps {
                 // Build Maven project
