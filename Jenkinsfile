@@ -72,7 +72,7 @@ pipeline {
 
         stage('Deploy') {
             environment {
-                TOMCAT_URL = 'http://100.26.145.135:8080'
+                TOMCAT_URL = 'http://54.167.112.130:8080'
                 TOMCAT_USER = 'admin'
                 TOMCAT_PASSWORD = 's3cret'
                 CONTEXT_PATH = '/simpleWebProject' // e.g., /myapp
@@ -82,7 +82,7 @@ pipeline {
                 // sh 'curl -v -u ${TOMCAT_USER}:${TOMCAT_PASSWORD} -T /../Simple-Webapp-COSC2767.war ${TOMCAT_URL}:tomcat_port/manager/text/deploy?path=/${CONTEXT_PATH}&update=true'
 
                 script {
-                    deploy adapters: [tomcat9(credentialsId: 'tomcat_credential', path: '', url: 'http://${TOMCAT_URL}:8080')], contextPath: '/pipeline', onFailure: false, war: '**/*.war' 
+                    deploy adapters: [tomcat9(credentialsId: 'tomcat_credential', path: '', url: ${TOMCAT_URL})], contextPath: '/pipeline', onFailure: false, war: '**/*.war' 
                 }
             }
         }
