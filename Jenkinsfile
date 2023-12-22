@@ -82,7 +82,7 @@ pipeline {
                 // sh 'curl -v -u ${TOMCAT_USER}:${TOMCAT_PASSWORD} -T /../Simple-Webapp-COSC2767.war ${TOMCAT_URL}:tomcat_port/manager/text/deploy?path=/${CONTEXT_PATH}&update=true'
 
                 script {
-                    deploy adapters: [tomcat9(credentialsId: 'tomcat_credential', path: '', url: 'http://${TOMCAT_URL}:8081')], contextPath: '/pipeline', onFailure: false, war: '**/*.war' 
+                    deploy adapters: [tomcat9(credentialsId: 'tomcat_credential', path: '', url: 'http://${TOMCAT_URL}:8080')], contextPath: '/pipeline', onFailure: false, war: '**/*.war' 
                 }
             }
         }
