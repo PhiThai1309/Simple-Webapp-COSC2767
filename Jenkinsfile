@@ -58,12 +58,12 @@ pipeline {
         }
 
         stage('Build') {
-            agent {
-                docker {
-                    image 'maven:latest' 
-                    args '-v /root/.m2:/root/.m2' 
-                }
-            }
+            // agent {
+            //     docker {
+            //         image 'maven:latest' 
+            //         args '-v /root/.m2:/root/.m2' 
+            //     }
+            // }
             steps {
                 // Build Maven project
                 sh 'mvn clean package'
