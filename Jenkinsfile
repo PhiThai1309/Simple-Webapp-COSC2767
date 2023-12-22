@@ -72,7 +72,7 @@ pipeline {
 
         stage('Deploy') {
             environment {
-                TOMCAT_URL = 'http://3.87.112.240:8080'
+                TOMCAT_URL = 'http://100.26.145.135:8080'
                 TOMCAT_USER = 'admin'
                 TOMCAT_PASSWORD = 's3cret'
                 CONTEXT_PATH = '/Simple-Webapp-COSC2767' // e.g., /myapp
