@@ -79,7 +79,7 @@ pipeline {
             }
             steps {
                 // Deploy the built war file to Tomcat
-                sh 'curl — upload-file target/Simple-Webapp-COSC2767.war ${TOMCAT_URL}/manager/text/deploy?path=${CONTEXT_PATH} -u ${TOMCAT_USER}:${TOMCAT_PASSWORD}'
+                sh 'curl -v -u ${TOMCAT_USER}:${TOMCAT_PASSWORD} -T /../Simple-Webapp-COSC2767.war ${TOMCAT_URL}:tomcat_port/manager/text/deploy?path=/${CONTEXT_PATH}&update=true'
             }
         }
         
