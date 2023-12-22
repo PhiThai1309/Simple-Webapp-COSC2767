@@ -1,38 +1,3 @@
-// pipeline {
-//     agent any
-    
-//     environment {
-//         // Set the Maven home path
-//         MAVEN_HOME = tool 'Maven 3.x'
-//         AWS_ACCESS_KEY_ID     = credentials('jenkins-aws-secret-key-id')
-//         AWS_SECRET_ACCESS_KEY = credentials('jenkins-aws-secret-access-key')
-//     }
-
-//     stages {
-//         stage('Checkout') {
-//             steps {
-                
-//             }
-//         }
-
-//         stage('Build') {
-//             steps {
-//                 // Build Maven project
-//                 sh "${MAVEN_HOME}/bin/mvn clean install"
-//             }
-//         }
-
-//         stage('Deploy to Tomcat') {
-//             steps {
-//                 // Deploy the WAR file to Tomcat
-//                 deploy adapters: [
-//                     tomcat(credentialsId: 'your-tomcat-credentials-id', url: 'http://your-tomcat-server:8080', path: '/manager/text', war: 'target/your-application.war')
-//                 ]
-//             }
-//         }
-//     }
-// }
-
 pipeline {
     agent any
     
